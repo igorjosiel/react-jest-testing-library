@@ -2,6 +2,7 @@ const baseURL = "http://localhost:3001/todos";
 
 export const getTodos = async () => {
   const response = await fetch(baseURL);
+
   return response.json();
 };
 
@@ -13,6 +14,7 @@ export const updateTodo = async (todo) => {
     },
     body: JSON.stringify(todo),
   });
+
   return response.json();
 };
 
@@ -24,6 +26,7 @@ export const createTodo = async (todo) => {
     },
     body: JSON.stringify(todo),
   });
+  
   return response.json();
 };
 
