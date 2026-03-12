@@ -1,27 +1,11 @@
 import mergeClass from "./mergeClass";
 
 describe("./mergeClass.js", () => {
-    test("deveria retornar a classe 'todo-item' quando o item não estiver completo", () => {
-
-        // Arrange
-        const isItemCompleted = false;
-
-        // Act
-        const styles = mergeClass(isItemCompleted);
-
-        // Assert
-        expect(styles).toBe("todo-item");
+    it("should return 'todo-item' class when the item is not completed", () => {
+        expect(mergeClass(false)).toBe("todo-item");
     });
 
-    test("deveria retornar a classe 'todo-item' e a classe completed quando o item não estiver completo", () => {
-
-        // Arrange
-        const isItemCompleted = true;
-
-        // Act
-        const styles = mergeClass(isItemCompleted);
-
-        // Assert
-        expect(styles).toBe("todo-item completed");
+    it("should return 'todo-item' and completed classes when the item is completed", () => {
+        expect(mergeClass(true)).toBe("todo-item completed");
     });
 });
