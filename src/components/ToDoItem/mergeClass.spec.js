@@ -1,11 +1,13 @@
 import mergeClass from "./mergeClass";
 
 describe("./mergeClass.js", () => {
-    it("should return 'todo-item' class when the item is not completed", () => {
-        expect(mergeClass(false)).toBe("todo-item");
-    });
-
-    it("should return 'todo-item' and completed classes when the item is completed", () => {
-        expect(mergeClass(true)).toBe("todo-item completed");
-    });
+  it.each([
+    { input: true, output: "todo-item completed" },
+    { input: false, output: "todo-item" },
+  ])(
+    "should return $output classes when completed is $input",
+    ({ input, output }) => {
+      expect(mergeClass(input)).toBe(output);
+    },
+  );
 });
